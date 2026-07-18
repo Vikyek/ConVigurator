@@ -25,6 +25,19 @@ echo "=========================================="
 echo "    ConVigurator Installer Sequence"
 echo "=========================================="
 
+# --- STAGE 0: DEPENDENCY SETUP ---
+echo -e "\n[*] Ensuring dependency: power-profile-switcher..."
+POWER_SWITCHER_DIR="/home/garuda/Projects/power-profile-switcher"
+if [ -d "$POWER_SWITCHER_DIR" ]; then
+    if [ -f "$POWER_SWITCHER_DIR/install.sh" ]; then
+        echo "    [+] Executing installer for power-profile-switcher..."
+        # Execute the installer under the real calling user context to target correct user config paths
+        su - "$REAL_USER" -c "bash $POWER_SWITCHER_DIR/install.sh"
+    fi
+else
+    echo "    [!] Warning: power-profile-switcher directory not found at $POWER_SWITCHER_DIR."
+fi
+
 # --- STAGE 1: CLEAN UP OLD AND NON-COMPLIANT INSTANCES ---
 echo -e "\n[*] Auditing system for old/non-compliant instances..."
 
