@@ -42,6 +42,17 @@ else
     echo "    [!] Warning: power-profile-switcher directory not found at $POWER_SWITCHER_DIR."
 fi
 
+echo -e "\n[*] Ensuring dependency: omarchy-ai-usage..."
+OMARCHY_DIR="/home/garuda/Projects/omarchy-ai-usage"
+if [ -d "$OMARCHY_DIR" ]; then
+    if [ -f "$OMARCHY_DIR/install.sh" ]; then
+        echo "    [+] Executing installer for omarchy-ai-usage..."
+        su - "$REAL_USER" -c "bash $OMARCHY_DIR/install.sh"
+    fi
+else
+    echo "    [!] Warning: omarchy-ai-usage directory not found at $OMARCHY_DIR."
+fi
+
 # --- STAGE 1: CLEAN UP OLD AND NON-COMPLIANT INSTANCES ---
 echo -e "\n[*] Auditing system for old/non-compliant instances..."
 
