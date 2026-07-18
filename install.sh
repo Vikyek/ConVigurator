@@ -7,6 +7,10 @@ set -euo pipefail
 REAL_USER="${SUDO_USER:-$USER}"
 REAL_HOME=$(getent passwd "$REAL_USER" | cut -d: -f6)
 
+# Change directory to the script's actual directory to support execution from other folders
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
 SHELL_CONFIGS=()
 [ -f "$REAL_HOME/.bashrc" ] && SHELL_CONFIGS+=("$REAL_HOME/.bashrc")
 [ -f "$REAL_HOME/.zshrc" ] && SHELL_CONFIGS+=("$REAL_HOME/.zshrc")
