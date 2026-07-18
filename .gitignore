@@ -1,0 +1,11 @@
+# Backup and temporary files
+*.bak
+*.tmp
+*backup_*
+*~
+.DS_Store
+
+# User-specific local test logs or caches
+*.log
+.cache/
+EOF

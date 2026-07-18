@@ -1,0 +1,11 @@
+.TH CONV-WARDEN 1 "July 2026" "ConVigurator Manual"
+.SH NAME
+conv-warden \- links SSH configurations to the Goldwarden / Bitwarden agent.
+.SH SYNOPSIS
+.B conv-warden
+.SH DESCRIPTION
+.B conv-warden
+updates terminal configuration profiles (.bashrc, .zshrc, config.fish) and ~/.ssh/config to point the SSH_AUTH_SOCK to ~/.goldwarden-ssh-agent.sock.
+This enables automatic SSH authentication and git signing using credentials stored in your Bitwarden vault.
+.SH SEE ALSO
+conv-shell(1), ssh(1)
