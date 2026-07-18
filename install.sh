@@ -132,6 +132,21 @@ echo -e "\n[*] Registering global 'conv-alias' command..."
 # Run the newly installed script with -s to register it
 "$DEST_BINARY" -s
 
+# --- STAGE 3.5: INSTALL BOOT TUNING SERVICE ---
+echo -e "\n[*] Installing ConVigurator Boot Tuning Service..."
+SERVICE_FILE="conv-boot.service"
+TARGET_SERVICE="/etc/systemd/system/conv-boot.service"
+if [ -f "$SERVICE_FILE" ]; then
+    echo "    Copying '$SERVICE_FILE' to '$TARGET_SERVICE'..."
+    sudo cp "$SERVICE_FILE" "$TARGET_SERVICE"
+    echo "    Reloading systemd and enabling conv-boot.service..."
+    sudo systemctl daemon-reload
+    sudo systemctl enable conv-boot.service
+    echo "    [+] ConVigurator Boot Tuning Service installed and enabled."
+else
+    echo "    [!] Warning: '$SERVICE_FILE' not found, skipping service installation."
+fi
+
 # --- STAGE 4: EXECUTION BLOCK ---
 run_alias_tool() {
     echo -e "\n[*] Running conv-alias on ConVigurator directory..."

@@ -1,0 +1,11 @@
+[Unit]
+Description=ConVigurator Boot Configuration Tuner
+After=local-fs.target systemd-udev-trigger.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/garuda/Projects/ConVigurator/conv-boot.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
