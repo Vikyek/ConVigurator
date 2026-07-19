@@ -12,7 +12,7 @@ The suite contains the following modules, which are automatically registered as 
 
 | Command Alias | Script Source | Purpose | Key Target Files |
 | --- | --- | --- | --- |
-| `conv-install` | `install.sh` | Registers all tools as aliases, normalizes files, and synchronizes environments. | Shell profiles (`.bashrc`, `.zshrc`, `config.fish`) |
+| `conv-install` | `install.sh` | Master setup script that registers tools as aliases, normalizes files, installs systemd units, and synchronizes environments. | Shell profiles (`.bashrc`, `.zshrc`, `config.fish`) |
 | `conv-alias` | `conv-alias.sh` | Audits and normalizes user-defined shell aliases against system policies. | User profile configs |
 | `conv-shell` | `configure-shell.sh` / `conv-shell.sh` | Installs clean Fish & Starship prompt configurations with an **adaptive timeout tuner**. | `~/.config/fish/config.fish`, `~/.config/starship.toml` |
 | `conv-warden` | `conv-warden.sh` | Links SSH configuration profiles to utilize the Goldwarden/Bitwarden agent socket. | `~/.ssh/config`, shell profiles |
@@ -21,6 +21,11 @@ The suite contains the following modules, which are automatically registered as 
 | `conv-micro-allow-global-c` | `micro-allow-global-c.sh` | Configures the micro editor skeleton settings to enforce global clipboard access. | `~/.config/micro/settings.json` |
 | `conv-system-snapshot` | `system-snapshot.sh` | Manages automated user-home and system snapshots. | `/etc/snapper/configs/` |
 | `conv-encrypt-root-offline` | `encrypt-root-offline.sh` | Step-by-step utility for offline LUKS partition encryptions during recovery. | Disk partitions |
+| `conv-boot` | `conv-boot.sh` | ConVigurator Boot Configuration Tuner to dynamically audit hardware (touchscreen) and filesystem (Btrfs) to toggle/scale service states at startup. | `/etc/systemd/system/conv-boot.service` |
+| `conv-build` | `conv-build.sh` | VelocityOS ConVigurator Live ISO Architect that rebuilds a monolithic ISO image from the active live overlay layout. | `/mnt/temp` staging path |
+| `conv-backup-firedragon-pr` | `backup-firedragon-pr.sh` | Backup utility for Firedragon profiles and user preferences. | Web browser profiles |
+| `conv-fish` | `conv-fish.sh` | Helper environment utilities and fish configuration setup scripts. | `config.fish` |
+| `conv-installer` | `conv-installer.sh` | Installer profile coordinator script configuration backup. | `/usr/local/bin` |
 
 ---
 

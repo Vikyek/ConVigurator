@@ -1,0 +1,10 @@
+.TH CONV-BOOT 1 "July 2026" "ConVigurator Manual"
+.SH NAME
+conv-boot \- ConVigurator Boot Configuration Tuner for hardware and filesystem service scaling.
+.SH SYNOPSIS
+.B conv-boot
+.SH DESCRIPTION
+.B conv-boot
+is executed automatically on system startup via conv-boot.service. It audits hardware characteristics (such as the presence of touchscreens via udev metadata) and filesystem layouts (verifying if root / is hosted on a Btrfs subvolume or a Live USB overlayfs mount) to toggle and scale corresponding services (e.g., evdev-rce.service and snapper-cleanup).
+.SH SEE ALSO
+conv-build(1), conv-alias(1)

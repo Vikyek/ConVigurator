@@ -1,0 +1,11 @@
+.TH CONV-BUILD 1 "July 2026" "ConVigurator Manual"
+.SH NAME
+conv-build \- VelocityOS ConVigurator Live ISO Architect.
+.SH SYNOPSIS
+.B conv-build
+--dev | --prod --iso <old_iso_path>
+.SH DESCRIPTION
+.B conv-build
+extracts, updates, squashes, and packager-rebuilds the monolithic VelocityOS-ConVigurator.iso from the live OverlayFS layout, allowing complete installation persistence on target Ventoy-enabled drives. It supports development and production modes, offloads storage directories to temporary mount paths to prevent system RAM usage exhaustion, and utilizes memory limit constraints in mksquashfs to prevent OOM killer activation.
+.SH SEE ALSO
+conv-boot(1), conv-alias(1)
