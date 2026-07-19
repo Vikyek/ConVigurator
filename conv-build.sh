@@ -98,7 +98,16 @@ bind_offload "$LOG_DIR"
 
 # --- Phase 2: Initramfs Generation ---
 echo -e "\n${GREEN}[*] Phase 2: Updating Initramfs and Kernel Modules...${NC}"
-mkinitcpio -P || { echo -e "${RED}[!] mkinitcpio failed.${NC}"; exit 1; }
+if command -v dracut-rebuild &>/dev/null; then
+    dracut-rebuild || { echo -e "${RED}[!] dracut-rebuild failed.${NC}"; exit 1; }
+elif command -v mkinitcpio &>/dev/null; then
+    mkinitcpio -P || { echo -e "${RED}[!] mkinitcpio failed.${NC}"; exit 1; }
+elif command -v dracut &>/dev/null; then
+    dracut --regenerate-all --force || { echo -e "${RED}[!] dracut failed.${NC}"; exit 1; }
+else
+    echo -e "${YELLOW}[!] Warning: Neither dracut-rebuild, mkinitcpio, nor dracut was found. Skipping initramfs generation.${NC}"
+fi
+
 
 # --- Phase 3: Staging the ISO ---
 echo -e "\n${GREEN}[*] Phase 3: Extracting Old ISO to Staging Area...${NC}"
