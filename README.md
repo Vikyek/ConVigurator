@@ -6,6 +6,23 @@
 
 ---
 
+## 📋 Requirements & Dependencies
+
+* **Operating System:** Arch Linux or Arch-based distributions (e.g., Garuda Linux)
+* **Core Utilities & Shells:**
+  - `bash` (4.0+)
+  - `fish` shell
+  - `starship` cross-shell prompt
+  - `systemd` (for service management and boot tuners)
+  - `sudo` privileges for system modifications
+* **Optional Dependencies:**
+  - `micro` (terminal editor)
+  - `snapper` (for automated filesystem snapshots)
+  - `cryptsetup` (for offline LUKS partition operations)
+  - `firedragon` / `firefox` (for browser profile sync)
+
+---
+
 ## 🛠️ Included Tools & Modules
 
 The suite contains the following modules, which are automatically registered as global system aliases:
@@ -39,6 +56,7 @@ The suite contains the following modules, which are automatically registered as 
 
 2. **Run the Master Installer:**
    ```bash
+   chmod +x install.sh
    ./install.sh
    ```
 
@@ -47,6 +65,29 @@ The suite contains the following modules, which are automatically registered as 
    ```bash
    source ~/.config/fish/config.fish
    ```
+
+---
+
+## 💻 Usage & Key Commands
+
+After installation, use any of the registered `conv-*` aliases directly from your shell:
+
+```bash
+# Audit and normalize aliases
+conv-alias
+
+# Re-apply fish shell and starship configurations
+conv-shell
+
+# Manage Bitwarden / Goldwarden SSH agent linking
+conv-warden
+
+# Inspect and recover stuck system daemons
+conv-deamonbreak
+
+# Trigger automated Btrfs system snapshot
+conv-system-snapshot
+```
 
 ---
 
