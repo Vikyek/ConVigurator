@@ -43,6 +43,7 @@ The suite contains the following modules, which are automatically registered as 
 | `conv-backup-firedragon-pr` | `backup-firedragon-pr.sh` | Backup utility for Firedragon profiles and user preferences. | Web browser profiles |
 | `conv-fish` | `conv-fish.sh` | Helper environment utilities and fish configuration setup scripts. | `config.fish` |
 | `conv-installer` | `conv-installer.sh` | Installer profile coordinator script configuration backup. | `/usr/local/bin` |
+| `conv-agy` | `conv-agy.sh` | Master setup script that bootstraps the Antigravity agent CLI environment, private syncvault rules, and associated plugins/MCP servers. | `~/.gemini/` path and associated shell scripts |
 
 ---
 

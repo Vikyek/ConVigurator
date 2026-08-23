@@ -127,6 +127,25 @@ else
 fi
 echo "    [+] Successfully installed to $DEST_BINARY"
 
+# --- STAGE 2.5: INSTALL CONV-AGY SCRIPT ---
+echo -e "\n[*] Installing conv-agy script..."
+SOURCE_AGY="conv-agy.sh"
+DEST_AGY="/usr/local/bin/conv-agy"
+if [ -f "$SOURCE_AGY" ]; then
+    echo "    Copying '$SOURCE_AGY' to '$DEST_AGY'..."
+    if [ -w "$(dirname "$DEST_AGY")" ]; then
+        cp "$SOURCE_AGY" "$DEST_AGY"
+        chmod +x "$DEST_AGY"
+    else
+        echo "    [*] Requesting admin privileges to write to /usr/local/bin..."
+        sudo cp "$SOURCE_AGY" "$DEST_AGY"
+        sudo chmod +x "$DEST_AGY"
+    fi
+    echo "    [+] Successfully installed to $DEST_AGY"
+else
+    echo "    [!] Warning: '$SOURCE_AGY' not found, skipping."
+fi
+
 # --- STAGE 3: SELF-ALIAS REGISTRATION ---
 echo -e "\n[*] Registering global 'conv-alias' command..."
 # Run the newly installed script with -s to register it
