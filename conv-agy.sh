@@ -34,14 +34,14 @@ curl -fsSL https://raw.githubusercontent.com/HoangP8/tokless/main/scripts/instal
 ~/.local/bin/tokless
 ~/.local/bin/tokless doctor
 
-# 4. Install/update agy-vispatcher plugin
-echo -e "\n[*] Checking agy-vispatcher plugin..."
+# 4. Install/update agv-dispatcher plugin
+echo -e "\n[*] Checking agv-dispatcher plugin..."
 mkdir -p ~/.gemini/config/plugins
-if [ ! -d ~/.gemini/config/plugins/agy-vispatcher/.git ]; then
-    echo "    [+] Cloning agy-vispatcher..."
-    gh repo clone Vikyek/agy-vispatcher ~/.gemini/config/plugins/agy-vispatcher
+if [ ! -d ~/.gemini/config/plugins/agv-dispatcher/.git ]; then
+    echo "    [+] Cloning agv-dispatcher..."
+    gh repo clone Vikyek/agv-dispatcher ~/.gemini/config/plugins/agv-dispatcher
 else
-    echo "    [+] agy-vispatcher is already installed."
+    echo "    [+] agv-dispatcher is already installed."
 fi
 
 # 5. Install/update toon-mcp server
